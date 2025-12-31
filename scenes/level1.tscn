@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctrldu60g3lrr"]
+
+[ext_resource type="PackedScene" uid="uid://cldkvlv0mugde" path="res://scenes/tilemap.tscn" id="1_dwgg1"]
+[ext_resource type="PackedScene" uid="uid://don2eo0u6ry02" path="res://scenes/key.tscn" id="2_ru4tf"]
+[ext_resource type="PackedScene" uid="uid://1t6efwj4l3c0" path="res://scenes/door.tscn" id="3_6sh32"]
+[ext_resource type="PackedScene" uid="uid://bohwywdmcako3" path="res://scenes/player.tscn" id="4_ejswk"]
+[ext_resource type="PackedScene" uid="uid://xlckiqwbbl1h" path="res://scenes/level2.tscn" id="4_ru4tf"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="TileMapLayer" parent="." instance=ExtResource("1_dwgg1")]
+
+[node name="Key" parent="." node_paths=PackedStringArray("lock") instance=ExtResource("2_ru4tf")]
+position = Vector2(318, -61)
+lock = NodePath("../Door")
+
+[node name="Door" parent="." instance=ExtResource("3_6sh32")]
+position = Vector2(345, -112)
+next_scene = ExtResource("4_ru4tf")
+
+[node name="Player" parent="." instance=ExtResource("4_ejswk")]
+position = Vector2(10, -16)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -16)
+zoom = Vector2(5, 5)
