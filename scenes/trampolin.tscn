@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dleown0m1k8xh" path="res://assets/kenney_pico-8-platformer/Transparent/Tilemap/tilemap_packed.png" id="1_nuehd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bo85v"]
-size = Vector2(8, 4)
+size = Vector2(8, 8)
 
 [node name="Trampolin" type="Area2D"]
+collision_layer = 0
 script = ExtResource("1_bo85v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -15,6 +16,7 @@ region_enabled = true
 region_rect = Rect2(0, 12, 8, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_bo85v")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

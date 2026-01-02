@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var MAX_SPEED: float = 60
+@export var MAX_SPEED: float = 55
 @export var ACCEL: float = 5
 @export var BRAKE: float = 5
 @export var JUMP_HEIGHT: float = 110
@@ -15,14 +15,18 @@ var cooldown = SHOOT_RATE
 func _physics_process(delta: float) -> void:
 	var input: float = Input.get_axis("move_left", "move_right")
 	if input:
-		velocity.x = lerp(velocity.x, input * MAX_SPEED, ACCEL * delta)
-	else: 
+		if velocity.x * input < MAX_SPEED or is_on_floor():
+			velocity.x = lerp(velocity.x, input * MAX_SPEED, ACCEL * delta)
+	elif is_on_floor(): 
 		velocity.x = lerp(velocity.x, 0.0, BRAKE * delta)
 		
 	if Input.is_action_pressed("move_up") and is_on_floor(): 
 		velocity.y = -JUMP_HEIGHT
 	elif not is_on_floor():
 		velocity.y += FALL_SPEED * delta
+		
+	if is_on_ceiling_only():
+		print("ceiling detected")
 		
 	move_and_slide()
 
@@ -38,4 +42,4 @@ func _process(delta: float) -> void:
 		cooldown += delta
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
-	get_tree().reload_current_scene()
+	get_tree().call_deferred("reload_current_scene")

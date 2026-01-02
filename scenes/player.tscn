@@ -8,8 +8,9 @@ size = Vector2(8, 7.2226563)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 2
+floor_stop_on_slope = false
 script = ExtResource("1_g2els")
-SHOOT_RATE = 0.4
+SHOOT_RATE = 0.5
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.02734375)
@@ -30,5 +31,9 @@ collision_mask = 4
 position = Vector2(0, 0.14257813)
 shape = SubResource("RectangleShape2D_qhqgy")
 debug_color = Color(0.9008042, 0.27365598, 0.39163685, 0.41960785)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -16)
+zoom = Vector2(5, 5)
 
 [connection signal="body_entered" from="HitArea" to="." method="_on_area_2d_body_entered"]
