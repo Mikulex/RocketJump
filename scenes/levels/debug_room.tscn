@@ -15,7 +15,6 @@ tile_map_data = PackedByteArray("AAAAAP//AAAEAAEAAAABAP//AAAEAAEAAAACAP//AAAEAAE
 
 [node name="Player" parent="." instance=ExtResource("3_32gq6")]
 position = Vector2(10, -16)
-SHOOT_RATE = 0.2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
