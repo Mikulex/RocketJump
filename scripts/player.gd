@@ -67,5 +67,5 @@ func _handle_dash():
 			
 		velocity.x = dir * max(MAX_SPEED * 1.75, abs(velocity.x))
 
-func _on_area_2d_body_entered(_body: Node2D) -> void:
+func _on_hit_area_body_entered(_body: Node2D) -> void:
 	get_tree().call_deferred("reload_current_scene")

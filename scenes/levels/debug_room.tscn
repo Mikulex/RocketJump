@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://f71ckescknnw"]
+[gd_scene load_steps=6 format=4 uid="uid://f71ckescknnw"]
 
 [ext_resource type="Script" uid="uid://ben0sm5llf64y" path="res://scripts/debugroom.gd" id="1_jgafr"]
 [ext_resource type="PackedScene" uid="uid://cldkvlv0mugde" path="res://scenes/tilemap.tscn" id="2_6pl83"]
 [ext_resource type="PackedScene" uid="uid://bohwywdmcako3" path="res://scenes/player.tscn" id="3_32gq6"]
+[ext_resource type="PackedScene" uid="uid://bmvsxu4d8ety6" path="res://scenes/reflector.tscn" id="4_6pl83"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aifrh"]
 font_size = 30
@@ -24,3 +25,7 @@ offset_bottom = 87.0
 text = "Speed: 0
 "
 label_settings = SubResource("LabelSettings_aifrh")
+
+[node name="Reflector" parent="." instance=ExtResource("4_6pl83")]
+position = Vector2(82, -59)
+rotation = 1.5707964

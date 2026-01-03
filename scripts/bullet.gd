@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 @export var speed: float = 200
 @export var knockback: float = 70
@@ -19,14 +19,15 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		return
 		
 	hit = true
-	
 	for b in explosion.get_overlapping_bodies():
 		if b.is_in_group("Player"):
 			var dir = global_position.direction_to(b.global_position)
 			b.velocity.x += dir.x * knockback
 			b.velocity.y += dir.y * knockback
-			
 	
+	for a in explosion.get_overlapping_areas():
+		if a.is_in_group("Button"):
+			a.owner.press_button()
 	_explosion_anim()
 
 func _explosion_anim():

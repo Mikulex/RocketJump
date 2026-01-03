@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cldkvlv0mugde" path="res://scenes/tilemap.tscn" id="1_v1pya"]
 [ext_resource type="PackedScene" uid="uid://1t6efwj4l3c0" path="res://scenes/door.tscn" id="2_qsj6i"]
-[ext_resource type="PackedScene" uid="uid://f71ckescknnw" path="res://scenes/levels/debug_room.tscn" id="3_dju2a"]
+[ext_resource type="PackedScene" uid="uid://dug232jm3dbt2" path="res://scenes/levels/level6.tscn" id="3_v1pya"]
 [ext_resource type="PackedScene" uid="uid://bohwywdmcako3" path="res://scenes/player.tscn" id="4_v0vb7"]
 [ext_resource type="PackedScene" uid="uid://b2c3pp4pc71p2" path="res://scenes/trampolin.tscn" id="5_lsgss"]
 [ext_resource type="PackedScene" uid="uid://don2eo0u6ry02" path="res://scenes/key.tscn" id="6_sd6f7"]
@@ -14,13 +14,13 @@ tile_map_data = PackedByteArray("AAAAAP//AAAEAAIAAAABAP//AAAEAAEAAAACAP//AAAEAAQ
 
 [node name="Door" parent="." instance=ExtResource("2_qsj6i")]
 position = Vector2(-36, -104)
-next_scene = ExtResource("3_dju2a")
+next_scene = ExtResource("3_v1pya")
 
 [node name="Player" parent="." instance=ExtResource("4_v0vb7")]
 position = Vector2(-19, -12)
 
 [node name="Key" parent="." node_paths=PackedStringArray("lock") instance=ExtResource("6_sd6f7")]
-position = Vector2(365, -91)
+position = Vector2(365, -93)
 lock = NodePath("../Door")
 
 [node name="Trampolines" type="Node2D" parent="."]

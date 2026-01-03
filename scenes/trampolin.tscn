@@ -7,7 +7,7 @@
 size = Vector2(8, 8)
 
 [node name="Trampolin" type="Area2D"]
-collision_layer = 0
+collision_layer = 2
 script = ExtResource("1_bo85v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

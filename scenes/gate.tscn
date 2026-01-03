@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://1mt0uor31fyy"]
+
+[ext_resource type="Texture2D" uid="uid://dleown0m1k8xh" path="res://assets/kenney_pico-8-platformer/Transparent/Tilemap/tilemap_packed.png" id="1_xfvdi"]
+[ext_resource type="Script" uid="uid://cyrvwkt3t06y6" path="res://scripts/gate.gd" id="3_hudsw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwxio"]
+size = Vector2(5.9651065, 16.34091)
+
+[node name="Gate" type="StaticBody2D"]
+texture_repeat = 2
+scale = Vector2(1.0177567, 0.97913766)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_hudsw")
+
+[node name="Door" type="Sprite2D" parent="."]
+position = Vector2(0, -4.0852275)
+rotation = -1.5707964
+texture = ExtResource("1_xfvdi")
+region_enabled = true
+region_rect = Rect2(0, 32, 8, 4)
+
+[node name="Door2" type="Sprite2D" parent="."]
+position = Vector2(0, 4.0852275)
+rotation = -1.5707964
+scale = Vector2(0.9999998, 1)
+texture = ExtResource("1_xfvdi")
+region_enabled = true
+region_rect = Rect2(0, 32, 8, 4)
+
+[node name="Lock" type="Sprite2D" parent="."]
+position = Vector2(0.982553, 0)
+texture = ExtResource("1_xfvdi")
+region_enabled = true
+region_rect = Rect2(57, 32, 6, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.0174465, -2.4349853e-07)
+scale = Vector2(0.9999997, 1)
+shape = SubResource("RectangleShape2D_xwxio")

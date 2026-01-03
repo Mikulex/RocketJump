@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0ngoufe6kgna"]
+
+[ext_resource type="Texture2D" uid="uid://dleown0m1k8xh" path="res://assets/kenney_pico-8-platformer/Transparent/Tilemap/tilemap_packed.png" id="1_mi6dp"]
+[ext_resource type="Script" uid="uid://cuegfv80rvr65" path="res://scripts/button.gd" id="1_rhj8v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3q610"]
+size = Vector2(8, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhj8v"]
+size = Vector2(8, 2)
+
+[node name="Button" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_rhj8v")
+
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_3q610")
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("1_mi6dp")
+region_enabled = true
+region_rect = Rect2(0, 24, 8, 4)
+
+[node name="Pressed" type="Sprite2D" parent="Base"]
+visible = false
+position = Vector2(0, -3)
+texture = ExtResource("1_mi6dp")
+region_enabled = true
+region_rect = Rect2(0, 12, 8, 4)
+
+[node name="Unpressed" type="Sprite2D" parent="Base"]
+position = Vector2(0, -5)
+texture = ExtResource("1_mi6dp")
+region_enabled = true
+region_rect = Rect2(0, 16, 8, 8)
+
+[node name="PressureArea" type="Area2D" parent="." groups=["Button"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="PressureAreaBox" type="CollisionShape2D" parent="PressureArea"]
+visible = false
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_rhj8v")
+debug_color = Color(7.460266e-07, 0.64922935, 0.16394424, 0.41960785)
